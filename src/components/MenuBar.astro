@@ -1,0 +1,34 @@
+---
+import HomeIcon from "../icons/HomeIcon.astro";
+import TieIcon from "../icons/TieIcon.astro";
+import BriefcaseIcon from "../icons/BriefcaseIcon.astro";
+import SchoolIcon from "../icons/SchoolIcon.astro";
+
+const mainColor = "#e5e7eb";
+const hoverColor = "#f8fafc";
+---
+
+<div
+  id="form-bar"
+  class="absolute bottom-6 left-1/2 -translate-x-2/4 z-50 transition-all duration-700"
+>
+  <div
+    class="flex gap-2 flex-row bg-black px-4 py-2 rounded-full transition-all duration-700"
+  >
+    <button class={`transition-all duration-300 rounded-full px-2 py-2`}>
+      <HomeIcon color={mainColor} />
+    </button>
+
+    <button class="transition-all duration-300 rounded-full px-2 py-2">
+      <BriefcaseIcon color={mainColor} />
+    </button>
+
+    <button class="transition-all duration-300 rounded-full px-2 py-2">
+      <TieIcon color={mainColor} />
+    </button>
+
+    <button class="transition-all duration-300 rounded-full px-2 py-2">
+      <SchoolIcon color={mainColor} />
+    </button>
+  </div>
+</div>
