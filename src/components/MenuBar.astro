@@ -4,8 +4,8 @@ import TieIcon from "../icons/TieIcon.astro";
 import BriefcaseIcon from "../icons/BriefcaseIcon.astro";
 import SchoolIcon from "../icons/SchoolIcon.astro";
 
-const mainColor = "stroke-gray-600";
-const hoverColor = "hover:stroke-gray-200";
+const iconColor =
+  "stroke-gray-600 hover:stroke-gray-200 transition-all duration-300";
 ---
 
 <div
@@ -15,28 +15,20 @@ const hoverColor = "hover:stroke-gray-200";
   <div
     class="flex gap-2 flex-row bg-black px-4 py-2 rounded-full transition-all duration-700"
   >
-    <button class={`transition-all duration-300 rounded-full px-2 py-2`}>
-      <HomeIcon
-        className={`${mainColor} ${hoverColor} transition-all duration-300`}
-      />
+    <button class="transition-all duration-300 rounded-full px-2 py-2">
+      <HomeIcon className={iconColor} />
     </button>
 
     <button class="transition-all duration-300 rounded-full px-2 py-2">
-      <BriefcaseIcon
-        className={`${mainColor} ${hoverColor} transition-all duration-300`}
-      />
+      <BriefcaseIcon className={iconColor} />
     </button>
 
     <button class="transition-all duration-300 rounded-full px-2 py-2">
-      <TieIcon
-        className={`${mainColor} ${hoverColor} transition-all duration-300`}
-      />
+      <TieIcon className={iconColor} />
     </button>
 
     <button class="transition-all duration-300 rounded-full px-2 py-2">
-      <SchoolIcon
-        className={`${mainColor} ${hoverColor} transition-all duration-300`}
-      />
+      <SchoolIcon className={iconColor} />
     </button>
   </div>
 </div>
