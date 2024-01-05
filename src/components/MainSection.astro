@@ -1,0 +1,38 @@
+---
+import SchoolIcon from "../icons/SchoolIcon.astro";
+import LinkSection from "./LinkSection.astro";
+---
+
+<section id="#main" class="flex flex-col space-y-4">
+  <h1 class="text-3xl font-semibold">Hola! 👋, soy Ángel García</h1>
+  <p>
+    +4 años de experiencia. Desarrollador de software desde Caracas, Venezuela.
+    Especializado en crear aplicaciones modernas y flexibles con respuesta
+    rápida.
+  </p>
+
+  <div class="flex flex-row gap-2">
+    <LinkSection href="#">
+      <SchoolIcon slot="icon" />
+      Github
+    </LinkSection>
+    <LinkSection href="#">
+      <SchoolIcon slot="icon" />
+      Linkedin
+    </LinkSection>
+    <LinkSection href="#">
+      <SchoolIcon slot="icon" />
+      Twiter
+    </LinkSection>
+
+    <LinkSection href="#">
+      <SchoolIcon slot="icon" />
+      CV
+    </LinkSection>
+
+    <LinkSection href="#">
+      <SchoolIcon slot="icon" />
+      angelgarciaweb@gmail.com
+    </LinkSection>
+  </div>
+</section>
