@@ -2,6 +2,8 @@
 import "@fontsource-variable/onest";
 
 import MenuBar from "../components/MenuBar.astro";
+import image from "@/assets/images/grid.svg";
+import { getImage } from "astro:assets";
 
 interface Props {
   title: string;
@@ -21,6 +23,8 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="min-h-screen">
+    <div class="landing-grid"></div>
+    <div class="landing-radial"></div>
     <slot />
     <MenuBar />
   </body>
@@ -30,5 +34,58 @@ const { title } = Astro.props;
   html {
     font-family: "Onest Variable", system-ui, sans-serif !important;
     scroll-behavior: smooth;
+  }
+
+  .landing-grid::after {
+    background-image: url("../assets/images/grid.svg");
+    z-index: -2;
+    opacity: 0.3;
+    filter: invert(1);
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  .animation {
+    animation: animate 8s linear infinite;
+    background-size: 200%;
+  }
+
+  .bg-animation {
+    animation: animate 12s linear infinite;
+    background-size: 200%;
+  }
+
+  @keyframes animate {
+    0% {
+      background-position: 0;
+    }
+
+    100% {
+      background-position: 200%;
+    }
+  }
+
+  .landing-radial {
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(at 27% 37%, #cfe6f0 0, transparent 0),
+      radial-gradient(at 97% 21%, #f845c6 0, transparent 50%),
+      radial-gradient(at 52% 99%, #7957ff 0, transparent 50%),
+      radial-gradient(at 10% 29%, #2466b8 0, transparent 50%),
+      radial-gradient(at 97% 96%, #147787 0, transparent 50%),
+      radial-gradient(at 33% 50%, #18b6aa 0, transparent 50%),
+      radial-gradient(at 79% 53%, #c1cff2 0, transparent 50%);
+    position: absolute;
+    content: "";
+    filter: blur(100px) saturate(150%);
+    opacity: 0.15;
   }
 </style>

@@ -1,0 +1,21 @@
+---
+import { sideProjects } from "@/lib/jobsProjects";
+import Card from "./Card.astro";
+---
+
+<section id="top-projects">
+  <h2 class="text-3xl font-semibold">Projects in which I have participated</h2>
+
+  <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-2">
+    {
+      sideProjects.map((item) => (
+        <Card
+          title={item.title}
+          description={item.description}
+          image={item.image}
+          href={item.link}
+        />
+      ))
+    }
+  </div>
+</section>

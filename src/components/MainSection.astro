@@ -1,10 +1,19 @@
 ---
+import { Image } from "astro:assets";
 import SchoolIcon from "../icons/SchoolIcon.astro";
 import LinkSection from "./LinkSection.astro";
+
+import image from "@/assets/images/profile.png";
 ---
 
 <section id="#main" class="flex flex-col space-y-4">
-  <h1 class="text-3xl font-semibold">Hi! 👋, I'm Ángel García</h1>
+  <Image src={image} alt="Ángel García" class="rounded-full w-32 h-32" />
+  <h1 class="text-3xl font-semibold">
+    Hi! 👋, I'm <span
+      class="bg-gradient-to-r from-indigo-500 via-sky-500 to-indigo-500 animation bg-clip-text text-transparent"
+      >Ángel García
+    </span>
+  </h1>
   <p>
     +4 years of experience. Software developer from Caracas, Venezuela.
     Specialized in creating modern, flexible applications with quick response.
