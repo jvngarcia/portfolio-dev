@@ -1,0 +1,25 @@
+---
+import { studyInfo } from "@/lib/studiesTimeline";
+import ItemTimeline from "./ItemTimeline.astro";
+---
+
+<section id="studies-timeline" class="flex flex-col space-y-4">
+  <h2 class="text-3xl font-semibold">My studies</h2>
+  <ol class="relative border-s border-gray-200 dark:border-gray-700">
+    {
+      studyInfo.map((item) => (
+        <ItemTimeline
+          title={item.title}
+          company={item.company}
+          startDate={item.startDate}
+          endDate={item.endDate}
+          description={item.description}
+          modality={item.modality}
+          link={item.link}
+          current={item.current}
+          location={item.location}
+        />
+      ))
+    }
+  </ol>
+</section>

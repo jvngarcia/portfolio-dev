@@ -3,12 +3,16 @@ import MainSection from "@/components/MainSection.astro";
 import Layout from "@/layouts/Layout.astro";
 import TopProjects from "@/components/TopProjects.astro";
 import JobTimeline from "@/components/JobTimeline.astro";
+import StudyTimeLine from "@/components/StudyTimeLine.astro";
 ---
 
 <Layout title="Software Developer Ángel García">
   <main class="container py-12 flex flex-col space-y-12 gap-4">
     <MainSection />
     <TopProjects />
+
+    <!-- TODO: Mejorar - ¿se agregra un botón de ver más? -->
     <JobTimeline />
+    <StudyTimeLine />
   </main>
 </Layout>
