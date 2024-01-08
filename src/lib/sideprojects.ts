@@ -4,6 +4,7 @@ interface SideProjects {
     title: string;
     description: string;
     link: string;
+    technologies: string[];
 }
   
 
@@ -15,6 +16,17 @@ export const sideProjects:SideProjects[] = [
       description:
         "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
       link: "#",
+      technologies: [
+        "React",
+        "TypeScript",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Node",
+        "Express",
+        "MongoDB",
+      
+      ]
     },
   
     {
@@ -24,5 +36,16 @@ export const sideProjects:SideProjects[] = [
       description:
         "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
       link: "#",
+      technologies: [
+        "React",
+        "TypeScript",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Node",
+        "Express",
+        "MongoDB",
+      
+      ]
     },
   ];
