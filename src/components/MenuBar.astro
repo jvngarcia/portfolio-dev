@@ -10,25 +10,123 @@ const iconColor =
 
 <div
   id="form-bar"
-  class="absolute bottom-6 left-1/2 -translate-x-2/4 z-50 transition-all duration-700"
+  class="fixed bottom-6 left-1/2 -translate-x-2/4 z-50 transition-all duration-700"
 >
   <div
     class="flex gap-2 flex-row bg-black px-4 py-2 rounded-full transition-all duration-700"
   >
-    <button class="transition-all duration-300 rounded-full px-2 py-2">
+    <button
+      data-tooltip-target="tooltip-home"
+      class="transition-all duration-300 rounded-full px-2 py-2"
+    >
       <HomeIcon className={iconColor} />
     </button>
 
-    <button class="transition-all duration-300 rounded-full px-2 py-2">
+    <button
+      data-tooltip-target="tooltip-sideprojects"
+      class="transition-all duration-300 rounded-full px-2 py-2"
+    >
       <BriefcaseIcon className={iconColor} />
     </button>
 
-    <button class="transition-all duration-300 rounded-full px-2 py-2">
+    <button
+      data-tooltip-target="tooltip-jobs"
+      class="transition-all duration-300 rounded-full px-2 py-2"
+    >
       <TieIcon className={iconColor} />
     </button>
 
-    <button class="transition-all duration-300 rounded-full px-2 py-2">
+    <button
+      data-tooltip-target="tooltip-studies"
+      class="transition-all duration-300 rounded-full px-2 py-2"
+    >
       <SchoolIcon className={iconColor} />
     </button>
+
+    <div
+      id="tooltip-home"
+      role="tooltip"
+      class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-zinc-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+    >
+      Home
+      <div class="tooltip-arrow" data-popper-arrow></div>
+    </div>
+
+    <div
+      id="tooltip-sideprojects"
+      role="tooltip"
+      class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-zinc-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+    >
+      Side Projects
+      <div class="tooltip-arrow" data-popper-arrow></div>
+    </div>
+
+    <div
+      id="tooltip-jobs"
+      role="tooltip"
+      class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-zinc-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+    >
+      Jobs
+      <div class="tooltip-arrow" data-popper-arrow></div>
+    </div>
+
+    <div
+      id="tooltip-studies"
+      role="tooltip"
+      class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-zinc-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+    >
+      Applied Studies
+      <div class="tooltip-arrow" data-popper-arrow></div>
+    </div>
   </div>
 </div>
+
+<script>
+  import { Tooltip } from "flowbite";
+  import type { TooltipOptions, TooltipInterface } from "flowbite";
+  import type { InstanceOptions } from "flowbite";
+
+  // set the tooltip content element
+  const $targetEl: HTMLElement | null =
+    document.getElementById("tooltipContent");
+
+  // set the element that trigger the tooltip using hover or click
+  const $triggerEl: HTMLElement | null =
+    document.getElementById("tooltipButton");
+
+  // options with default values
+  const options: TooltipOptions = {
+    placement: "top",
+    triggerType: "hover",
+    onHide: () => {
+      console.log("tooltip is shown");
+    },
+    onShow: () => {
+      console.log("tooltip is hidden");
+    },
+    onToggle: () => {
+      console.log("tooltip is toggled");
+    },
+  };
+
+  // instance options with default values
+  const instanceOptions: InstanceOptions = {
+    id: "tooltipContent",
+    override: true,
+  };
+
+  /*
+   * targetEl: required
+   * triggerEl: required
+   * options: optional
+   */
+  const tooltip: TooltipInterface = new Tooltip(
+    $targetEl,
+    $triggerEl,
+    options,
+    instanceOptions
+  );
+
+  // show the tooltip
+  tooltip.show();
+</script>
