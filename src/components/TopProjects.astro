@@ -1,36 +1,20 @@
 ---
 import { sideProjects } from "@/lib/sideprojects";
-
-const cardStyles = {
-  grid: "grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-2",
-  container:
-    "max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:shadow-lg transition-all duration-300",
-  image: "rounded-t-lg ",
-  content: "p-5",
-  title: "mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white",
-  description: "mb-3 font-normal text-gray-700 dark:text-gray-400",
-};
+import Card from "./Card.astro";
 ---
 
 <section id="top-projects">
-  <h2 class="text-3xl font-semibold">Mis mejores proyectos</h2>
+  <h2 class="text-3xl font-semibold">Mis mejores proyectos personales</h2>
 
-  <div class={cardStyles.grid}>
+  <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-2">
     {
       sideProjects.map((item) => (
-        <div class={cardStyles.container}>
-          <a href={item.link}>
-            <img class={cardStyles.image} src={item.image} alt={item.title} />
-          </a>
-
-          <div class={cardStyles.content}>
-            <a href={item.link}>
-              <h4 class={cardStyles.title}>{item.title}</h4>
-            </a>
-
-            <p class={cardStyles.description}>{item.description}</p>
-          </div>
-        </div>
+        <Card
+          title={item.title}
+          description={item.description}
+          image={item.image}
+          href={item.link}
+        />
       ))
     }
   </div>
