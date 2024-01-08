@@ -4,80 +4,73 @@ import TieIcon from "../icons/TieIcon.astro";
 import BriefcaseIcon from "../icons/BriefcaseIcon.astro";
 import SchoolIcon from "../icons/SchoolIcon.astro";
 
-const iconColor =
-  "stroke-gray-600 hover:stroke-gray-200 transition-all duration-300";
+interface MenuItem {
+  name: string;
+  icon: any;
+  tooltip: string;
+  link: string;
+}
+
+const styles = {
+  formBar:
+    "fixed bottom-6 left-1/2 -translate-x-2/4 z-50 transition-all duration-700",
+  formBarContent:
+    "flex gap-2 flex-row bg-black px-4 py-2 rounded-full transition-all duration-700",
+  formBarItem: "transition-all duration-300 rounded-full px-2 py-2",
+  fromBarItemIcon:
+    "stroke-gray-600 hover:stroke-gray-200 transition-all duration-300",
+  tooltip:
+    "absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-zinc-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700",
+  tooltipArrow: "tooltip-arrow",
+};
+
+const menu: MenuItem[] = [
+  {
+    name: "Home",
+    icon: HomeIcon,
+    tooltip: "tooltip-home",
+    link: "#",
+  },
+  {
+    name: "Side Projects",
+    icon: BriefcaseIcon,
+    tooltip: "tooltip-sideprojects",
+    link: "#",
+  },
+  {
+    name: "Jobs",
+    icon: TieIcon,
+    tooltip: "tooltip-jobs",
+    link: "#",
+  },
+  {
+    name: "Applied Studies",
+    icon: SchoolIcon,
+    tooltip: "tooltip-studies",
+    link: "#",
+  },
+];
 ---
 
-<div
-  id="form-bar"
-  class="fixed bottom-6 left-1/2 -translate-x-2/4 z-50 transition-all duration-700"
->
-  <div
-    class="flex gap-2 flex-row bg-black px-4 py-2 rounded-full transition-all duration-700"
-  >
-    <button
-      data-tooltip-target="tooltip-home"
-      class="transition-all duration-300 rounded-full px-2 py-2"
-    >
-      <HomeIcon className={iconColor} />
-    </button>
-
-    <button
-      data-tooltip-target="tooltip-sideprojects"
-      class="transition-all duration-300 rounded-full px-2 py-2"
-    >
-      <BriefcaseIcon className={iconColor} />
-    </button>
-
-    <button
-      data-tooltip-target="tooltip-jobs"
-      class="transition-all duration-300 rounded-full px-2 py-2"
-    >
-      <TieIcon className={iconColor} />
-    </button>
-
-    <button
-      data-tooltip-target="tooltip-studies"
-      class="transition-all duration-300 rounded-full px-2 py-2"
-    >
-      <SchoolIcon className={iconColor} />
-    </button>
-
-    <div
-      id="tooltip-home"
-      role="tooltip"
-      class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-zinc-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
-    >
-      Home
-      <div class="tooltip-arrow" data-popper-arrow></div>
-    </div>
-
-    <div
-      id="tooltip-sideprojects"
-      role="tooltip"
-      class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-zinc-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
-    >
-      Side Projects
-      <div class="tooltip-arrow" data-popper-arrow></div>
-    </div>
-
-    <div
-      id="tooltip-jobs"
-      role="tooltip"
-      class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-zinc-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
-    >
-      Jobs
-      <div class="tooltip-arrow" data-popper-arrow></div>
-    </div>
-
-    <div
-      id="tooltip-studies"
-      role="tooltip"
-      class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-zinc-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
-    >
-      Applied Studies
-      <div class="tooltip-arrow" data-popper-arrow></div>
-    </div>
+<div id="form-bar" class={styles.formBar}>
+  <div class={styles.formBarContent}>
+    {
+      menu.map((item) => (
+        <>
+          <a
+            href={item.link}
+            data-tooltip-target={item.tooltip}
+            class={styles.formBarItem}
+          >
+            <item.icon className={styles.fromBarItemIcon} />
+          </a>
+          <div id={item.tooltip} role="tooltip" class={styles.tooltip}>
+            {item.name}
+            <div class={styles.tooltipArrow} data-popper-arrow />
+          </div>
+        </>
+      ))
+    }
   </div>
 </div>
 
