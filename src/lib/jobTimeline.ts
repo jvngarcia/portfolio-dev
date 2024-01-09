@@ -28,7 +28,7 @@ export const jobInfo: JobInfo[] = [
     },
     {
         title: "Distributed Systems Development Specialist",
-        company: "Bancamiga Banbco Universa",
+        company: "Bancamiga Banbco Universal",
         location: "Caracas, Venezuela",
         startDate: new Date("2022-11-01"),
         description: "I develop and maintain a set of REST API services with python that allow clients to perform financial transactions securely and efficiently. These services are used in the company's internet banking application and have contributed to improving the user experience.",
