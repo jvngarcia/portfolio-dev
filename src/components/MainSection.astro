@@ -10,7 +10,7 @@ import image from "@/assets/images/profile.png";
   <Image src={image} alt="Ángel García" class="rounded-full w-32 h-32" />
   <h1 class="text-3xl font-semibold">
     Hi! 👋, I'm <span
-      class="bg-gradient-to-r from-indigo-500 via-sky-500 to-indigo-500 animation bg-clip-text text-transparent"
+      class="bg-gradient-to-r from-primary-500 via-secondary-500 to-primary-500 animation bg-clip-text text-transparent"
       >Ángel García
     </span>
   </h1>
@@ -19,26 +19,17 @@ import image from "@/assets/images/profile.png";
     Specialized in creating modern, flexible applications with quick response.
   </p>
 
-  <div class="flex flex-row gap-2">
-    <LinkSection href="#">
+  <div class="flex flex-row gap-2 flex-wrap">
+    <LinkSection href="https://github.com/jvngarcia" target="_blank">
       <SchoolIcon slot="icon" />
       Github
     </LinkSection>
-    <LinkSection href="#">
+    <LinkSection href="https://www.linkedin.com/in/jvngarcia/" target="_blank">
       <SchoolIcon slot="icon" />
       Linkedin
     </LinkSection>
-    <LinkSection href="#">
-      <SchoolIcon slot="icon" />
-      Twiter
-    </LinkSection>
 
-    <LinkSection href="#">
-      <SchoolIcon slot="icon" />
-      CV
-    </LinkSection>
-
-    <LinkSection href="#">
+    <LinkSection href="mailto:angelgarciaweb@gmail.com">
       <SchoolIcon slot="icon" />
       angelgarciaweb@gmail.com
     </LinkSection>

@@ -1,12 +1,15 @@
 ---
+import { Image, getImage } from "astro:assets";
+
 interface Props {
   title: string;
   description: string;
   href: string;
   image: string;
+  target?: string;
 }
 
-const { href, title, description, image } = Astro.props;
+const { href, title, description, image, target } = Astro.props;
 
 const cardStyles = {
   container:
@@ -19,12 +22,12 @@ const cardStyles = {
 ---
 
 <div class={cardStyles.container}>
-  <a href={href}>
+  <a href={href} target={target ?? "_self"}>
     <img class={cardStyles.image} src={image} alt={title} />
   </a>
 
   <div class={cardStyles.content}>
-    <a href={href}>
+    <a href={href} target={target ?? "_self"}>
       <h4 class={cardStyles.title}>{title}</h4>
     </a>
 
