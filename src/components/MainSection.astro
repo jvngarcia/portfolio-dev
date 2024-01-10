@@ -1,9 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import SchoolIcon from "../icons/SchoolIcon.astro";
 import LinkSection from "./LinkSection.astro";
 
 import image from "@/assets/images/profile.png";
+import GithubIcon from "@/icons/GithubIcon.astro";
+import LinkedinIcon from "@/icons/LinkedinIcon.astro";
+import EmailIcon from "@/icons/EmailIcon.astro";
 ---
 
 <section id="#main" class="flex flex-col space-y-4">
@@ -20,17 +22,34 @@ import image from "@/assets/images/profile.png";
   </p>
 
   <div class="flex flex-row gap-2 flex-wrap">
-    <LinkSection href="https://github.com/jvngarcia" target="_blank">
-      <SchoolIcon slot="icon" />
+    <LinkSection
+      href="https://github.com/jvngarcia"
+      target="_blank"
+      class="group"
+    >
+      <GithubIcon
+        slot="icon"
+        className="group-hover:stroke-primary-400 transition-all duration-300"
+      />
       Github
     </LinkSection>
-    <LinkSection href="https://www.linkedin.com/in/jvngarcia/" target="_blank">
-      <SchoolIcon slot="icon" />
+    <LinkSection
+      href="https://www.linkedin.com/in/jvngarcia/"
+      target="_blank"
+      class="group"
+    >
+      <LinkedinIcon
+        slot="icon"
+        className="group-hover:stroke-primary-400 transition-all duration-300"
+      />
       Linkedin
     </LinkSection>
 
-    <LinkSection href="mailto:angelgarciaweb@gmail.com">
-      <SchoolIcon slot="icon" />
+    <LinkSection href="mailto:angelgarciaweb@gmail.com" class="group">
+      <EmailIcon
+        slot="icon"
+        className="group-hover:stroke-primary-400 transition-all duration-300"
+      />
       angelgarciaweb@gmail.com
     </LinkSection>
   </div>
