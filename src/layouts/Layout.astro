@@ -22,7 +22,7 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen">
+  <body class="min-h-screen bg-white dark:bg-gray-800">
     <div class="landing-grid"></div>
     <div class="landing-radial"></div>
     <slot />
@@ -38,7 +38,7 @@ const { title } = Astro.props;
 
   .landing-grid::after {
     background-image: url("../assets/images/grid.svg");
-    z-index: -2;
+    z-index: -1;
     opacity: 0.3;
     filter: invert(1);
     content: "";
@@ -73,7 +73,7 @@ const { title } = Astro.props;
   }
 
   .landing-radial {
-    z-index: -1;
+    z-index: -2;
     width: 100%;
     height: 100%;
     background-image: radial-gradient(at 27% 37%, #cfe6f0 0, transparent 0),

@@ -1,8 +1,10 @@
 ---
-import HomeIcon from "../icons/HomeIcon.astro";
-import TieIcon from "../icons/TieIcon.astro";
-import BriefcaseIcon from "../icons/BriefcaseIcon.astro";
-import SchoolIcon from "../icons/SchoolIcon.astro";
+import HomeIcon from "@/icons/HomeIcon.astro";
+import TieIcon from "@/icons/TieIcon.astro";
+import BriefcaseIcon from "@/icons/BriefcaseIcon.astro";
+import SchoolIcon from "@/icons/SchoolIcon.astro";
+import SunIcon from "@/icons/SunIcon.astro";
+import MoonIcon from "@/icons/MoonIcon.astro";
 
 interface MenuItem {
   name: string;
@@ -13,7 +15,7 @@ interface MenuItem {
 
 const styles = {
   formBar:
-    "fixed bottom-6 left-1/2 -translate-x-2/4 z-50 transition-all duration-700",
+    "fixed bottom-6 left-1/2 -translate-x-2/4 z-50 transition-all duration-700 flex flex-row gap-2",
   formBarContent:
     "flex gap-2 flex-row bg-white px-4 py-2 rounded-full transition-all duration-700 shadow",
   formBarItem:
@@ -29,7 +31,7 @@ const menu: MenuItem[] = [
     name: "Home",
     icon: HomeIcon,
     tooltip: "tooltip-home",
-    link: "/",
+    link: "/#",
   },
   {
     name: "Side Projects",
@@ -48,6 +50,15 @@ const menu: MenuItem[] = [
     icon: SchoolIcon,
     tooltip: "tooltip-studies",
     link: "#studies-timeline",
+  },
+];
+
+const secondaryMenu: MenuItem[] = [
+  {
+    name: "Dark mode",
+    icon: MoonIcon,
+    tooltip: "tooltip-dark-mode",
+    link: "/#",
   },
 ];
 ---
@@ -72,9 +83,52 @@ const menu: MenuItem[] = [
       ))
     }
   </div>
+  <div class={styles.formBarContent}>
+    <button
+      id="dark-mode"
+      data-tooltip-target="tooltip-dark-mode"
+      class={styles.formBarItem}
+    >
+      <MoonIcon className={styles.fromBarItemIcon} />
+    </button>
+    <div id="tooltip-dark-mode" role="tooltip" class={styles.tooltip}>
+      Dark mode
+      <div class={styles.tooltipArrow} data-popper-arrow></div>
+    </div>
+  </div>
 </div>
 
 <script>
+  // Dark mode
+  let darkMode = localStorage.getItem("darkMode");
+  const darkModeToggle = document.querySelector("#dark-mode");
+
+  console.log(darkModeToggle);
+
+  const enableDarkMode = () => {
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("darkMode", "enabled");
+  };
+
+  const disableDarkMode = () => {
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem("darkMode", "disabled");
+  };
+
+  if (darkMode === "enabled") {
+    enableDarkMode();
+  }
+
+  darkModeToggle?.addEventListener("click", () => {
+    console.log("clicked");
+    darkMode = localStorage.getItem("darkMode");
+    if (darkMode !== "enabled") {
+      enableDarkMode();
+    } else {
+      disableDarkMode();
+    }
+  });
+
   import { Tooltip } from "flowbite";
   import type { TooltipOptions, TooltipInterface } from "flowbite";
   import type { InstanceOptions } from "flowbite";

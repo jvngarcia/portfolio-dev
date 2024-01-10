@@ -10,13 +10,15 @@ import EmailIcon from "@/icons/EmailIcon.astro";
 
 <section id="#main" class="flex flex-col space-y-4">
   <Image src={image} alt="Ángel García" class="rounded-full w-32 h-32" />
-  <h1 class="text-3xl font-semibold">
+  <h1
+    class="text-3xl font-semibold dark:text-white transition-colors duration-300"
+  >
     Hi! 👋, I'm <span
       class="bg-gradient-to-r from-primary-500 via-secondary-500 to-primary-500 animation bg-clip-text text-transparent"
       >Ángel García
     </span>
   </h1>
-  <p>
+  <p class="dark:text-white transition-colors duration-300">
     +4 years of experience. Software developer from Caracas, Venezuela.
     Specialized in creating modern, flexible applications with quick response.
   </p>
@@ -25,30 +27,33 @@ import EmailIcon from "@/icons/EmailIcon.astro";
     <LinkSection
       href="https://github.com/jvngarcia"
       target="_blank"
-      class="group"
+      class="group dark:text-white"
     >
       <GithubIcon
         slot="icon"
-        className="group-hover:stroke-primary-400 transition-all duration-300"
+        className="group-hover:stroke-primary-400 transition-all duration-300 dark:stroke-white"
       />
       Github
     </LinkSection>
     <LinkSection
       href="https://www.linkedin.com/in/jvngarcia/"
       target="_blank"
-      class="group"
+      class="group dark:text-white"
     >
       <LinkedinIcon
         slot="icon"
-        className="group-hover:stroke-primary-400 transition-all duration-300"
+        className="group-hover:stroke-primary-400 transition-all duration-300 dark:stroke-white"
       />
       Linkedin
     </LinkSection>
 
-    <LinkSection href="mailto:angelgarciaweb@gmail.com" class="group">
+    <LinkSection
+      href="mailto:angelgarciaweb@gmail.com"
+      class="group dark:text-white"
+    >
       <EmailIcon
         slot="icon"
-        className="group-hover:stroke-primary-400 transition-all duration-300"
+        className="group-hover:stroke-primary-400 transition-all duration-300 dark:stroke-white"
       />
       angelgarciaweb@gmail.com
     </LinkSection>
