@@ -17,13 +17,13 @@ const styles = {
   formBar:
     "fixed bottom-6 left-1/2 -translate-x-2/4 z-50 transition-all duration-700 flex flex-row gap-2",
   formBarContent:
-    "flex gap-2 flex-row bg-white dark:bg-gray-800 px-4 py-2 rounded-full transition-all duration-700 shadow dark:border dark:border-primary-100",
+    "flex gap-2 flex-row bg-white dark:bg-gray-800 px-4 py-2 rounded-full transition-all duration-700 shadow",
   formBarItem:
-    "transition-all duration-300 rounded-full px-2 py-2 hover:stroke-primary-400 transition-all duration-300 hover:transform-gpu hover:-translate-y-1 group",
+    "transition-all duration-300 rounded-full px-2 py-2 hover:stroke-primary-400 transition-all duration-300 hover:transform-gpu hover:scale-125 group",
   fromBarItemIcon:
     "stroke-gray-600 dark:stroke-white group-hover:stroke-primary-400",
   tooltip:
-    "absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-zinc-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700",
+    "absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-gray-600 bg-white rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700 dark:text-white",
   tooltipArrow: "tooltip-arrow",
 };
 
@@ -53,15 +53,6 @@ const menu: MenuItem[] = [
     link: "#studies-timeline",
   },
 ];
-
-const secondaryMenu: MenuItem[] = [
-  {
-    name: "Dark mode",
-    icon: MoonIcon,
-    tooltip: "tooltip-dark-mode",
-    link: "/#",
-  },
-];
 ---
 
 <div id="form-bar" class={styles.formBar}>
@@ -84,17 +75,38 @@ const secondaryMenu: MenuItem[] = [
       ))
     }
   </div>
-  <div class={styles.formBarContent}>
-    <button
-      id="dark-mode"
-      data-tooltip-target="tooltip-dark-mode"
-      class={styles.formBarItem}
+  <div class="flex">
+    <div
+      id="dark-mode-container"
+      class={`${styles.formBarContent} transform-gpu duration-300 transition-all translate-y-0 hover:bg-gray-800`}
     >
-      <MoonIcon className={styles.fromBarItemIcon} />
-    </button>
-    <div id="tooltip-dark-mode" role="tooltip" class={styles.tooltip}>
-      Dark mode
-      <div class={styles.tooltipArrow} data-popper-arrow></div>
+      <button
+        id="dark-mode"
+        data-tooltip-target="tooltip-dark-mode"
+        class={styles.formBarItem}
+      >
+        <MoonIcon className={styles.fromBarItemIcon} />
+      </button>
+      <div id="tooltip-dark-mode" role="tooltip" class={styles.tooltip}>
+        <span id="text-dark-mode">Dark mode</span>
+        <div class={styles.tooltipArrow} data-popper-arrow></div>
+      </div>
+    </div>
+    <div
+      id="light-mode-container"
+      class={`${styles.formBarContent} transform-gpu duration-300 transition-all translate-y-40 hover:bg-white -ms-[4.5rem]`}
+    >
+      <button
+        id="light-mode"
+        data-tooltip-target="tooltip-light-mode"
+        class={styles.formBarItem}
+      >
+        <SunIcon className={styles.fromBarItemIcon} />
+      </button>
+      <div id="tooltip-light-mode" role="tooltip" class={styles.tooltip}>
+        <span>Light mode</span>
+        <div class={styles.tooltipArrow} data-popper-arrow></div>
+      </div>
     </div>
   </div>
 </div>
@@ -103,16 +115,35 @@ const secondaryMenu: MenuItem[] = [
   // Dark mode
   let darkMode = localStorage.getItem("darkMode");
   const darkModeToggle = document.querySelector("#dark-mode");
-
-  console.log(darkModeToggle);
+  const lightModeToggle = document.querySelector("#light-mode");
+  const darkModeContainer = document.querySelector("#dark-mode-container");
+  const lightModeContainer = document.querySelector("#light-mode-container");
+  const time = 400;
 
   const enableDarkMode = () => {
     document.documentElement.classList.add("dark");
+    darkModeContainer?.classList.remove("translate-y-0");
+    darkModeContainer?.classList.add("translate-y-40");
+
+    // sleep 2
+    setTimeout(function () {
+      lightModeContainer?.classList.remove("translate-y-40");
+      lightModeContainer?.classList.add("translate-y-0");
+    }, time);
+
     localStorage.setItem("darkMode", "enabled");
   };
 
   const disableDarkMode = () => {
     document.documentElement.classList.remove("dark");
+    lightModeContainer?.classList.add("translate-y-40");
+    lightModeContainer?.classList.remove("translate-y-0");
+
+    setTimeout(function () {
+      darkModeContainer?.classList.add("translate-y-0");
+      darkModeContainer?.classList.remove("translate-y-40");
+    }, time);
+
     localStorage.setItem("darkMode", "disabled");
   };
 
@@ -120,15 +151,17 @@ const secondaryMenu: MenuItem[] = [
     enableDarkMode();
   }
 
-  darkModeToggle?.addEventListener("click", () => {
-    console.log("clicked");
+  const toggleDarkMode = () => {
     darkMode = localStorage.getItem("darkMode");
     if (darkMode !== "enabled") {
       enableDarkMode();
     } else {
       disableDarkMode();
     }
-  });
+  };
+
+  darkModeToggle?.addEventListener("click", toggleDarkMode);
+  lightModeToggle?.addEventListener("click", toggleDarkMode);
 
   import { Tooltip } from "flowbite";
   import type { TooltipOptions, TooltipInterface } from "flowbite";
