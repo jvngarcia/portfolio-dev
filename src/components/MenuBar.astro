@@ -75,38 +75,36 @@ const menu: MenuItem[] = [
       ))
     }
   </div>
-  <div class="flex">
-    <div
-      id="dark-mode-container"
-      class={`${styles.formBarContent} transform-gpu duration-300 transition-all translate-y-0 hover:bg-gray-800`}
+  <div
+    id="dark-mode-container"
+    class={`${styles.formBarContent} transform-gpu duration-300 transition-all translate-y-0 hover:bg-gray-800`}
+  >
+    <button
+      id="dark-mode"
+      data-tooltip-target="tooltip-dark-mode"
+      class={styles.formBarItem}
     >
-      <button
-        id="dark-mode"
-        data-tooltip-target="tooltip-dark-mode"
-        class={styles.formBarItem}
-      >
-        <MoonIcon className={styles.fromBarItemIcon} />
-      </button>
-      <div id="tooltip-dark-mode" role="tooltip" class={styles.tooltip}>
-        <span id="text-dark-mode">Dark mode</span>
-        <div class={styles.tooltipArrow} data-popper-arrow></div>
-      </div>
+      <MoonIcon className={styles.fromBarItemIcon} />
+    </button>
+    <div id="tooltip-dark-mode" role="tooltip" class={styles.tooltip}>
+      <span id="text-dark-mode">Dark mode</span>
+      <div class={styles.tooltipArrow} data-popper-arrow></div>
     </div>
-    <div
-      id="light-mode-container"
-      class={`${styles.formBarContent} transform-gpu duration-300 transition-all translate-y-40 hover:bg-white -ms-[4.5rem]`}
+  </div>
+  <div
+    id="light-mode-container"
+    class={`${styles.formBarContent} transform-gpu duration-300 transition-all translate-y-40 hover:bg-white -ms-[4.5rem]`}
+  >
+    <button
+      id="light-mode"
+      data-tooltip-target="tooltip-light-mode"
+      class={styles.formBarItem}
     >
-      <button
-        id="light-mode"
-        data-tooltip-target="tooltip-light-mode"
-        class={styles.formBarItem}
-      >
-        <SunIcon className={styles.fromBarItemIcon} />
-      </button>
-      <div id="tooltip-light-mode" role="tooltip" class={styles.tooltip}>
-        <span>Light mode</span>
-        <div class={styles.tooltipArrow} data-popper-arrow></div>
-      </div>
+      <SunIcon className={styles.fromBarItemIcon} />
+    </button>
+    <div id="tooltip-light-mode" role="tooltip" class={styles.tooltip}>
+      <span>Light mode</span>
+      <div class={styles.tooltipArrow} data-popper-arrow></div>
     </div>
   </div>
 </div>
