@@ -8,9 +8,6 @@ export default function Decorator({ className, widthDecorator, heightDecorator, 
     const path = pathDecorator ??
       "M0 0V500 h30";
 
-//       <svg width="40" height="1" viewBox="0 0 40 1" fill="none" xmlns="http://www.w3.org/2000/svg">
-// <path d="M0.5 0.5H39.5" stroke="black"/>
-// </svg>
 
   
     return (
