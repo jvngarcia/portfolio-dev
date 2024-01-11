@@ -2,7 +2,7 @@
 
 
 
-interface JobInfo {
+export interface JobInfo {
     title: string;
     company: string;
     location: string;

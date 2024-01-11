@@ -1,5 +1,5 @@
 ---
-import { sideProjects } from "@/lib/sideprojects";
+import { sideProjects, type SideProjects } from "@/lib/sideprojects";
 import Card from "./Card.astro";
 ---
 
@@ -12,7 +12,7 @@ import Card from "./Card.astro";
 
   <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-2">
     {
-      sideProjects.map((item) => (
+      sideProjects.map((item: SideProjects) => (
         <Card
           title={item.title}
           description={item.description}

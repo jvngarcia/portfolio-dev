@@ -1,5 +1,5 @@
 ---
-import { jobInfo } from "@/lib/jobTimeline";
+import { jobInfo, type JobInfo } from "@/lib/jobTimeline";
 import ItemTimeline from "./ItemTimeline.astro";
 ---
 
@@ -20,7 +20,7 @@ import ItemTimeline from "./ItemTimeline.astro";
   </div>
   <ol class="relative border-s border-gray-200 dark:border-gray-700">
     {
-      jobInfo.map((item) => (
+      jobInfo.map((item: JobInfo) => (
         <ItemTimeline
           title={item.title}
           company={item.company}

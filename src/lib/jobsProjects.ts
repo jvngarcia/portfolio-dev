@@ -1,5 +1,5 @@
 
-interface SideProjects {
+export interface SideProjects {
     image: string;
     title: string;
     description: string;
