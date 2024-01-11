@@ -1,7 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": "C:/laragon/www/portfolio-dev",
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "src/*"
@@ -9,5 +9,5 @@
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
-  }
+  },
 }
