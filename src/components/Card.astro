@@ -5,9 +5,10 @@ interface Props {
   href: string;
   image: string;
   target?: string;
+  items?: string[];
 }
 
-const { href, title, description, image, target } = Astro.props;
+const { href, title, description, image, target, items } = Astro.props;
 
 const cardStyles = {
   container:
@@ -30,5 +31,15 @@ const cardStyles = {
     </a>
 
     <p class={cardStyles.description}>{description}</p>
+
+    <div>
+      {
+        items?.map((item) => (
+          <span class="inline-block px-2 py-1 mb-2 mr-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-200">
+            {item}
+          </span>
+        ))
+      }
+    </div>
   </div>
 </div>
