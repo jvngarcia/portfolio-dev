@@ -1,15 +1,16 @@
 ---
-import { Image } from "astro:assets";
 import LinkSection from "./LinkSection.astro";
-
-import image from "@/assets/images/profile.png";
 import GithubIcon from "@/icons/GithubIcon.astro";
 import LinkedinIcon from "@/icons/LinkedinIcon.astro";
 import EmailIcon from "@/icons/EmailIcon.astro";
 ---
 
 <section id="#main" class="flex flex-col space-y-4">
-  <Image src={image} alt="Ángel García" class="rounded-full w-32 h-32" />
+  <img
+    src="/assets/images/profile.png"
+    alt="Ángel García"
+    class="rounded-full w-32 h-32"
+  />
   <h1
     class="text-3xl font-semibold dark:text-white transition-colors duration-300"
   >
